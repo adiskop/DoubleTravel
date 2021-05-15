@@ -1,0 +1,2 @@
+class VisitedGem < ApplicationRecord
+end
