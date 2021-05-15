@@ -1,23 +1,21 @@
-Double Travel - Project 3 - Rails - Travel App 
+DoubleTravel - Project 3 - Rails - Travel App 
 
 
 User
-    - has_many :visits
-    - has_many :gems, through: :visits
+    - has_many :destinations
+    - has_many :gems
+    - has_many :destinations, through: :gems
     - attributes: name, email, password_digest
 
 Destination
+    - belongs_to :users
     - has_many :gems
+    - has_many :users, through: :gems
     - attributes: name, continent 
 
-Gem 
-    - has_many :visits
-    - has_many :users, through: :visits
-    - belongs_to :destination
-    - attributes: name, description, destination_id
+Gem [JOIN TABLE]
+    - belongs_to :user
+    - belongs_to :destination 
+    - attributes: name, description
    
 
-Visit (JOIN TABLE)
-    - belongs_to :user
-    - belongs_to :gem
-    - attributes: date_visited, user_id, destination_id
