@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  get '/signup' => 'users#new'
+
+
   resources :visited_gems
   resources :users
   resources :destinations
