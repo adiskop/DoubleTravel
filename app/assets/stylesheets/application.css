@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+ body {
+    background-color: rgba(213, 243, 174, 0.63);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size:x-large
+  }
