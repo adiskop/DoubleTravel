@@ -1,0 +1,12 @@
+<h1>All the Gems!</h1>
+
+
+<% @visited_gems.each do |gem| %>
+<ul>
+        <li>Name: <%= gem.name %><br>
+        Description: <%= gem.description %><br>
+        User: <%= gem.user.try(:name) %><br>
+        Destination: <%= gem.destination.try(:name) %></li><br><br>
+
+</ul>
+       <% end %>

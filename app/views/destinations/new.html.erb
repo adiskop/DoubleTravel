@@ -1,0 +1,23 @@
+<h1>New Destination</h1>
+
+<%= form_for @destination do |f|%>
+
+<ul> <!-- .errors is a method where all errors are saved -->
+<% @destination.errors.full_messages.each do |error_message| %>
+<li><%= error_message %></li>
+<% end %>
+</ul>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :continent %>
+    <%= f.text_field :continent %>
+
+      <%= f.hidden_field :user_id %>
+      
+    <%= f.submit "Create Destination" %>
+<% end %>
+
+
+
