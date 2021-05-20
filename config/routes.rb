@@ -5,6 +5,7 @@ resources :destinations
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+  get '/auth/facebook/callback' => 'sessions#fbcreate'
 
   resources :users 
 

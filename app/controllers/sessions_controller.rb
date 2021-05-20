@@ -18,7 +18,21 @@ def create
         flash[:message] = "Invalid login info, please try again"
         redirect_to '/login'
     end
-
+end
+#omniauth login
+def fbcreate
+    @user = User.find_or_create_by(uid: auth[:uid]) do |u|
+        u.name = auth['info']['name']
+        u.email = auth['info']['email']
+        u.password = auth['uid'] #this is not strong! best to use Secure Random Hex
+      end
+      if @user.valid?
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
+      else
+        flash[:message] = @user.errors.full_messages
+        redirect_to '/signup'
+      end
 end
 
 def home
@@ -30,6 +44,10 @@ def destroy
     redirect_to '/'
 end
 
-
+private
+ 
+  def auth
+    request.env['omniauth.auth']
+  end
 
 end
