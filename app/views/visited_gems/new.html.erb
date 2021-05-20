@@ -1,10 +1,6 @@
 <%= form_for(@visited_gem) do |f| %>
 
-<ul> <!-- .errors is a method where all errors are saved -->
-<% @visited_gem.errors.full_messages.each do |error_message| %>
-<li><%= error_message %></li>
-<% end %>
-</ul>
+<%= render partial: 'layouts/errors', locals:{object: @visited_gem} %>
 
     <%= f.label :name %>
     <%= f.text_field :name %>

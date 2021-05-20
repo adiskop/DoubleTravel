@@ -1,0 +1,5 @@
+<ul> <!-- .errors is a method where all errors are saved -->
+<% object.errors.full_messages.each do |error_message| %>
+<li><%= error_message %></li>
+<% end %>
+</ul>

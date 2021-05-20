@@ -2,11 +2,7 @@
 
 <%= form_for @user do |f| %>
 
-<ul> <!-- .errors is a method where all errors are saved -->
-<% @user.errors.full_messages.each do |error_message| %>
-<li><%= error_message %></li>
-<% end %>
-</ul>
+<%= render partial: 'layouts/errors', locals: { object: @user } %>
 
 <%= f.label :name %>
 <%= f.text_field :name %>
@@ -20,3 +16,4 @@
 <%= f.submit "Submit" %>
 
 <% end  %>
+
