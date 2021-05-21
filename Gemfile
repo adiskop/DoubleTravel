@@ -27,9 +27,14 @@ gem 'thin'
 
 #omniauth gems for fb:
 gem 'omniauth'
-gem 'omniauth-facebook'
 gem 'dotenv-rails'
+gem 'omniauth-facebook'
+
+
 gem 'omniauth-rails_csrf_protection'
+
+#google
+#gem 'omniauth-google-oauth2'
 
 
 # Reduces boot times through caching; required in config/boot.rb

@@ -1,5 +1,12 @@
 class SessionsController < ApplicationController
-#this controller handels loging in and out only. we don't need a model for session
+
+#logout route
+def destroy
+  session.clear
+  redirect_to '/'
+end
+
+  #this controller handels loging in and out only. we don't need a model for session
 
 def new
     @user = User.new
@@ -35,14 +42,12 @@ def fbcreate
       end
 end
 
+private
+
+
 def home
 end
 
-#logout route
-def destroy
-    session.clear
-    redirect_to '/'
-end
 
 private
  

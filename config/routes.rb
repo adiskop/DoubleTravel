@@ -5,7 +5,11 @@ resources :destinations
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  get '/auth/facebook/callback' => 'sessions#fbcreate'
+
+  #omniauth
+ get '/auth/facebook/callback' => 'sessions#fbcreate'
+ #get "/auth/google_oauth2/callback" => 'sessions#google'
+
 
   resources :users 
 
