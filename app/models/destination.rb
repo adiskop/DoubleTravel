@@ -4,4 +4,8 @@ class Destination < ApplicationRecord
   has_many :users, through: :visited_gems
 
   validates :name, :continent, presence: true
+
+#orders my destinations by date created
+  scope :ordered_by_date, -> { order(created_at: :asc) }
+
 end
