@@ -1,7 +1,12 @@
 <h1>Welcome <%= @user.name %></h1>
 <h4>♥ Name: <%= @user.name %></h4>
 <h4>♥ Email: <%= @user.email %></h4>
+<h4>♥ Destination count: <%= @user.destinations.count %></h4>
+
+<br><br><br><br>
 
 <% if @user == current_user %>
   <%= link_to "♥ Delete User", user_path(@user), method: :delete  %>
 <% end %>
+<br><br>
+<%= link_to "♥ TravelHolics", '/travelholic'  %>

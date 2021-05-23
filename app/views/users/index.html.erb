@@ -1,17 +1,21 @@
 <h1>All the Users</h1>
 
-
-<div><% @users.each do |user| %>
 <ol>
-           <li>Name: <%= user.name %></li>
-               Email: <%= user.email %><br><br>
-</ol>
+<div><% @users.each do |user| %>
+
+           <strong><li>Name: <%= user.name %><br></strong>
+                       Email: <%= user.email %><br>
+                       Destination count: <%= user.destinations.count %></li><br><br>
+
        <% end %>
 </div>
+</ol>
 
 <p>Current User: <%= current_user.email %><br>
    User Id:      <%= current_user.id %>
 </p>
 
+
+<%= link_to "♥ TravelHolics", '/travelholic'  %>
 
 

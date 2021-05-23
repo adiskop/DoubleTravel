@@ -29,6 +29,11 @@ class UsersController < ApplicationController
          
        end
 
+    def travelholic
+       @users = User.travelholic
+    end
+
+
     def destroy
         @user = User.find_by(id: params[:id])
         if !@user

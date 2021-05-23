@@ -3,9 +3,9 @@
 
 <div><% @destinations.each do |destination| %>
 <ol>
-        <li><p>User: <%= destination.user.email %></p></li>
-        <li><p>Name: <%= destination.name %></p></li>
-        <li><p>Continent: <%= destination.continent %></p></li><br><br>
+        <li>User: <%= destination.user.email %></li>
+        <li>Name: <%= destination.name %></li>
+        <li>Continent: <%= destination.continent %></li><br><br>
 </ol>
        <% end %>
 </div>

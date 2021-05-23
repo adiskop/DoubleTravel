@@ -1,0 +1,11 @@
+<h1>Our Current TravelHolics:</h1>
+
+<ol>
+<% User.travelholic.each do |travelholic| %>
+
+           <strong><li>Name: <%= travelholic.name %><br></strong>
+                       Email: <%= travelholic.email %><br>
+                       Destination count: <%= travelholic.destinations.count %></li><br>
+                       
+       <% end %>
+</ol>
