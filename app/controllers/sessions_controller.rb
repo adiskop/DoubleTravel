@@ -1,11 +1,5 @@
 class SessionsController < ApplicationController
 
-#logout route
-def destroy
-  session.clear
-  redirect_to '/'
-end
-
   #this controller handels loging in and out only. we don't need a model for session
 
 def new
@@ -20,7 +14,7 @@ def create
     #if it finds this user and authenticate its password then :
     if @user && @user.authenticate(params[:user][:password])
         session[:user_id] = @user.id
-        redirect_to destinations_path
+        redirect_to user_path(@user)
     else
         flash[:message] = "Invalid login info, please try again"
         redirect_to '/login'
@@ -31,7 +25,7 @@ def fbcreate
     @user = User.find_or_create_by(uid: auth[:uid]) do |u|
         u.name = auth['info']['name']
         u.email = auth['info']['email']
-        u.password = auth['uid'] #this is not strong! best to use Secure Random Hex
+        u.password = SecureRandom.hex(10) #auth['uid'] #this is not strong! best to use Secure Random Hex
       end
       if @user.valid?
         session[:user_id] = @user.id
@@ -39,15 +33,18 @@ def fbcreate
       else
         flash[:message] = @user.errors.full_messages
         redirect_to '/signup'
-      end
+      end 
 end
-
-private
 
 
 def home
 end
 
+#logout route
+def destroy
+  session.clear
+  redirect_to '/'
+end
 
 private
  
