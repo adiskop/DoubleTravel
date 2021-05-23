@@ -28,6 +28,14 @@ class DestinationsController < ApplicationController
       @destination = Destination.find(params[:id])
     end
     
+    def destroy
+      @destination = Destination.find_by(id: params[:id])
+      if !@destination
+        redirect_to destinations_path
+      end
+      @destination.destroy
+      redirect_to destinations_path
+    end
 
     private
 
