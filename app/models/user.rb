@@ -8,9 +8,10 @@ class User < ApplicationRecord
 
     validates :name, :email, presence: true
     validates :email, uniqueness: true
-
+#choose the 3 users with higher amount of destinations:
     scope :travelholic, -> { joins(:destinations).group(:user_id).order("count(user_id) DESC").limit(3) }
 
+# if I wanted the scope to be a class method: 
 
     #def self.travelholic
        # joins(:destinations).group(:user_id).order("count(user_id) DESC").limit(3)
