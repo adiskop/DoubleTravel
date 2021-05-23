@@ -24,6 +24,21 @@ class UsersController < ApplicationController
         redirect_to '/' if !@user
     end
 
+    def index
+        @users = User.all
+         
+       end
+
+    def destroy
+        @user = User.find_by(id: params[:id])
+        if !@user
+          redirect_to users_path
+        end
+        @user.destroy
+        redirect_to destinations_path
+      end
+  
+
 #in order to tell our params that some things are premitted, but some aren't:
 
 private
