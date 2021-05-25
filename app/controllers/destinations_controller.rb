@@ -22,6 +22,10 @@ class DestinationsController < ApplicationController
       def index
        @destinations = Destination.all
         
+       # In case I want to add a search option: 
+       # if params[:q]       -------> if the user submitted a search
+       # @destinations = @destinations.search(params[:q])  -->search through what we have
+       # end
       end
 
     def show 
